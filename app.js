@@ -7,8 +7,8 @@ var express = require("express"),
 var app = express();
 
 app.set("view engine", "jade");
-app.use(express.static("client"));
 app.use(bodyParser());
+app.use(express.static("public"));
 
 if (process.env.NODE_ENV !== "development") {
 	app.enable("trust proxy");

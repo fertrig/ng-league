@@ -1,0 +1,38 @@
+doctype
+html(ng-app="app")
+	head
+		meta(charset="utf-8")
+		link(rel="stylesheet", type="text/css", href="/styles/bootstrap/css/bootstrap.min.css")
+
+		script(type="text/javascript", src="/bower/angular/angular.js")
+		script(type="text/javascript", src="/bower/angular-route/angular-route.js")
+
+		script(type="text/javascript", src="/app/app.module.js")
+
+		script(type="text/javascript", src="/app/teams/teams.module.js")
+		script(type="text/javascript", src="/app/teams/config.route.js")
+		script(type="text/javascript", src="/app/teams/team.controller.js")
+		script(type="text/javascript", src="/app/teams/teams.repository.js")
+		
+	body
+
+		#main
+			h3 Some League
+
+			div(ng-view)
+
+		script(type="text/ng-template" , id="team.html")
+			h4 Name: {{name}}
+			h5 Captain: {{captain}}
+
+			h4 Name 2: {{nametwo}}
+			h5 Captain 2: {{captaintwo}}
+
+			h4 Name 3: {{namethree}}
+			h5 Captain 3: {{captainthree}}
+
+		script(type="text/ng-template" , id="team-selector.html")
+			.form-group
+				label Pick Team
+				select
+					option(ng-repeat="team in teams") {{team.name}}
